@@ -4,7 +4,7 @@ services:
     restart: always
     pull_policy: build
     ports:
-      - "1234:1234"
+      - "9080:9080"
     networks:
       - web
     labels:
@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.events.rule=Host(`notification.ryvo.com.br`)"
       - "traefik.http.routers.events.tls=true"
       - "traefik.http.routers.events.tls.certresolver=lets-encrypt"
-      - "traefik.http.services.events.loadbalancer.server.port=1234"
+      - "traefik.http.services.events.loadbalancer.server.port=9080"
       - "traefik.docker.network=web"
 
 networks:
